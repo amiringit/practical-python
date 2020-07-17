@@ -7,7 +7,6 @@ extra_payment_start_month = 61
 extra_payment_end_month = 108
 extra_payment = 1000
 total_paid = 0
-remaining_principal = principal * (1+rate/12)
 num_payments = 0
 
 while principal > 0:
@@ -15,18 +14,16 @@ while principal > 0:
         principal= principal * (1+rate/12) - payment
         num_payments = num_payments + 1
         total_paid = total_paid + payment
-        remaining_principal = remaining_principal - total_paid
-        print(num_payments, total_paid, remaining_principal)
+        print(num_payments, total_paid, principal)
     while (extra_payment_start_month - 1) > num_payments or num_payments < (extra_payment_end_month + 1):
         principal = principal * (1+rate/12) - payment - extra_payment
         num_payments = num_payments + 1
         total_paid = total_paid + payment + extra_payment
-        remaining_principal = remaining_principal - total_paid
-        print(num_payments, total_paid, remaining_principal)
+        print(num_payments, total_paid, principal)
     principal= principal * (1+rate/12) - payment
     num_payments = num_payments + 1
     total_paid = total_paid + payment
-    print(num_payments, total_paid, remaining_principal)
+    print(num_payments, total_paid, principal)
 
 print('Total paid', total_paid)
 print('Months', num_payments)
