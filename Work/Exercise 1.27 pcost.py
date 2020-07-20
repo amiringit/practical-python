@@ -1,12 +1,12 @@
 #Exercise 1.27
 
-total_cost = 0.0
-with open('Data/portfolio.csv', 'rt') as f:
-    headers = next(f)
-    for line in f:
-        row = line.split(',')
-        nshares = int(row[1])
-        price = float(row[2])
-        total_cost += nshares * price
+import csv
 
-print('Total cost', total_cost)
+with open('Data/portfolio.csv', 'rt') as file:
+    headers = next(file)
+    total_cost = 0.0
+    for line in file:
+        row = line.split(',')
+        total_cost = total_cost + (int(row[1]) * float(row[2]))
+    print('Total Cost:', total_cost)
+
