@@ -9,7 +9,7 @@ def portfolio_cost(filename):
             try:
                 row = line.split(',')
                 total_cost += (int(row[1]) * float(row[2]))
-            except ValueError: invalid literal for int() with base 10:'':
+            except ValueError:
                 print("Number of shares is missing", line)
         print('Total cost:', total_cost)
 
